@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row" style="margin-top: 100px;">
+        <button (click)="arrow('left')"><--</button>
+        <button (click)="arrow('right')">--></button>
+        <div class="col-lg-12">
+            <h4>{{clubs[arrPos]?.nome}}</h4>
+            <ul *ngFor="let player of players">
+                <li *ngIf="player?.club_id===clubs[arrPos].id" (click)="playerDetails(player)">{{ player.name }}</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
