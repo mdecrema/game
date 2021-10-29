@@ -13,12 +13,18 @@ export class ClubsComponent implements OnInit {
   clubs: Club[] = [];
   players: Player[] = [];
   arrPos: number;
+  clubName: string[];
+  tuttiGiocatori: boolean;
+  squadre: boolean;
 
   constructor(
     private cardService: CardService,
     public router: Router
   ) { 
     this.arrPos = 0;
+    this.clubName = [];
+    this.tuttiGiocatori = true;
+    this.squadre = false;
   }
 
   ngOnInit(): void {
@@ -32,6 +38,7 @@ export class ClubsComponent implements OnInit {
         this.players = response;
       }
     )
+    console.log(this.clubName)
   }
 
   arrow(side: string) {
@@ -57,5 +64,23 @@ export class ClubsComponent implements OnInit {
         id: playerObject.id
       }
     });
+  }
+
+  findClub(id: number) {
+    this.cardService.findClubById(id).subscribe(
+      (response) => {
+        this.clubName.push(response.nome);
+      }
+    )
+  }
+
+  changeFilterPlayers(filter: string) {
+    if (filter === 'tuttiGiocatori') {
+      this.tuttiGiocatori = true;
+      this.squadre = false;
+    } else if (filter === 'squadre') {
+      this.tuttiGiocatori = false;
+      this.squadre = true;
+    }
   }
 }

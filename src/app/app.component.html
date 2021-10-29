@@ -1,48 +1,51 @@
-<!DOCTYPE html>
-<html>
-  <header>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" >
-    <!-- Jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  </header>
-  <body>
-      <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #0E2331; border-bottom: 2px solid #fff;"> <!-- green #00A178 red #AE3554--> <!-- violet #7A0079-->
-        <a class="navbar-brand" style="color: #fff" href="#">FantApp</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+
+      <nav class="navbar navbar-expand-md navbar-fixed-top nightblue-bg" style="width: 100vw; position: fixed; z-index: 10;">
+        <!-- Brand -->
+        <a class="navbar-brand" href="/home" style="color: #fff">FantApp</a>
       
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <button style="border: none; background-color: transparent; position: absolute; top: 30%; left: 0px;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" >
-                <span class=""><i class="fas fa-bars" style="color: #333333"></i></span>
-            </button>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-          </ul>
+        <!-- Toggler/collapsibe Button -->
+        <div (click)="menuToggle()" style="width: 30px; color: #fff; font-size: 20px;">
+          <i class="fas fa-bars"></i>
+        </div>
+      
+        <!-- Navbar links -->
+        <div id="navbarSupportedContent" [ngStyle]="{'display': this.status===1 ? 'block' : 'none'}" class="nightblue-bg" style="width: 100vw; height: 70vh;position: absolute; top: 50px; left: 0; z-index: 7; color: #fff"> <!--  [ngStyle]="{'display': this.status===1 ? 'block' : 'none'}" -->
+          <!-- User details -->
+          <div class="green-bg" style="width: 90%; margin: 20px auto; border-radius: 5px; padding: 15px; color: #fff">
+            <strong>Nome Allenatore</strong><br/>
+            <span>e-mail</span>
+          </div>
+          <!-- Links -->
+          <div class="" style="width: 90%; margin: 20px auto; border-radius: 5px; padding: 15px; color: #fff">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a href="/home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="/clubs">Svincolati</a>
+              </li>
+              <li class="nav-item">
+                <a>Statistiche Giocatori</a>
+              </li>
+              <li class="nav-item">
+                <a>Statistiche Lega</a>
+              </li>
+              <li class="nav-item">
+                <a>Info Lega</a>
+              </li>
+              <li class="nav-item">
+                <a>Partecipanti</a>
+              </li>
+              <li class="nav-item">
+                <a>Impostazioni</a>
+              </li>
+              <li class="nav-item" class="green-text" style="margin-top: 10px;">
+                <span>Logout</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </nav>
       
-      
-
-  </body>
-  <footer>
-
-  </footer>
-</html>
+    
 <router-outlet></router-outlet>

@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="row">
+        <div style="margin-top: 60px;">
+            <h5 class="nightblue-text">Crea una nuova Lega</h5>
+        </div>
+        <div class="" style="border-radius: 10px;">
+            <!-- Nome Lega -->
+            <div class="col-lg-12 m_20">
+                <label for="leagueName">Nome della Lega</label><br>
+                <input (change)="getLeagueName($event)" type="text" name="leagueName" id="leagueName" placeholder="Nome Lega">
+            </div>
+            <!-- Crediti -->
+            <div class="col-lg-12 m_20">
+                <label for="credits">Crediti iniziali per squadra</label><br>
+                <input type="number" name="credits" id="credits" value="{{ credits }}" min="50" max="999" onkeypress="if(this.value.length==3) return false">
+            </div>
+            <!-- Numero di Squadre -->
+            <div class="col-lg-12 m_20">
+                <label for="teams">Numero di squadre</label><br>
+                <input type="number" name="teams" id="teams" value="{{ numberOfTeams }}" min="2" max="10" onkeypress="if(this.value.length==2) return false">
+            </div>
+            <!-- Giocatori x squadra -->
+            <div class="col-lg-12 m_20">
+                <label for="credits">Giocatori per squadra</label><br>
+                <div style="width: 100%; display: flex; justify-content: space-between;">
+                    <div (click)="changeUnlimitedPlayers('limited')" style="width: 40vw; height: 30px; text-align: center; color: #fff; border-radius: 5px;"
+                        [ngStyle]="{'background-color': this.unlimitedPlayers===0 ? '#00A178' : '#133A27'}">
+                        Limitati
+                    </div>
+                    <div (click)="changeUnlimitedPlayers('unlimited')" style="width: 40vw; height: 30px; text-align: center; color: #fff; border-radius: 5px;"
+                        [ngStyle]="{'background-color': this.unlimitedPlayers===1 ? '#00A178' : '#133A27'}">
+                        Illimitati
+                    </div>
+                </div>
+            </div>
+            <!-- Giocatori x ruolo -->
+            <div class="col-lg-12 m_20" *ngIf="unlimitedPlayers===0">
+                <label for="credits">Giocatori per ruolo</label><br>
+                <div style="width: 100%;display: flex; justify-content: space-between;">
+                    <input type="number" value="{{ golkeepers }}"  onkeypress="if(this.value.length==2) return false" style="width: 20%; height: 30px; border: 1px solid lightgray; border-radius: 5px; text-align: center;">
+                    <input type="number" value="{{ defenders }}" style="width: 20%; height: 30px; border: 1px solid lightgray; border-radius: 5px; text-align: center;">
+                    <input type="number" value="{{ midfielders }}" style="width: 20%; height: 30px; border: 1px solid lightgray; border-radius: 5px; text-align: center;">
+                    <input type="number" value="{{ forwards }}" style="width: 20%; height: 30px; border: 1px solid lightgray; border-radius: 5px; text-align: center;">
+                </div>
+                <!-- Labels -->
+                <div style="width: 100%;display: flex; justify-content: space-around; margin-top: 5px;">
+                    <div style="width: 20px; height: 20px; border: 1px solid lightgray; background-color: orange; color: #fff; text-align: center; line-height: 15px;">P</div>
+                    <div style="width: 20px; height: 20px; border: 1px solid lightgray; background-color: green; color: #fff; text-align: center; line-height: 15px;">D</div>
+                    <div style="width: 20px; height: 20px; border: 1px solid lightgray; background-color: blue; color: #fff; text-align: center; line-height: 15px;">C</div>
+                    <div style="width: 20px; height: 20px; border: 1px solid lightgray; background-color: red; color: #fff; text-align: center; line-height: 15px;">A</div>
+                </div>  
+            </div>
+            <!-- Nome Tua Squadra -->
+            <div class="col-lg-12 m_20">
+                <label for="teamName">Crea la tua squadra</label><br>
+                <input (change)="getTeamName($event)" type="text" name="teamName" id="teamName" placeholder="Nome Squadra">
+            </div>
+            <!-- Nome Fantallenatore -->
+            <div class="col-lg-12 m_20">
+                <label for="coachName">Crea il tuo fantallenatore</label><br>
+                <input (change)="getCoachName($event)" type="text" name="coachName" id="coachName" placeholder="Nome Fantallenatore">
+            </div>
+            <!-- Privacy -->
+            <div class="col-lg-12 m_20">
+                <input type="checkbox" id="privacy" name="privacy"><label for="privacy" style="font-style: italic; font-size: 12px; margin-left: 10px;">Ho letto e accetto le <a href="">condizioni d'uso</a></label>
+            </div>
+            <!-- Button Crea Lega -->
+            <div class="col-lg-12 m_20">
+                <button (click)="createNewLeague()" type="submit" class="" style="width: 100%; height: 30px; background-color: #007bff; color: #fff; border: none; border-radius: 5px;">Crea Lega</button>
+            </div>
+        </div>    
+    </div>
+</div>
+

@@ -1,10 +1,46 @@
 <div class="container">
-    <div class="row">
+    <!-- Loading -->
+    <div class="row" *ngIf="loading === true" style="width: 100vw; height: 100vh; position: relative;">
+        <div class="centra" style="text-align: center;">
+            <i class="fas fa-3x fa-spin fa-circle-notch nightblue-text"></i>
+        </div>
+    </div>
+
+    <!-- Caso 1 -->
+    <div class="row" *ngIf="(leaguesAsAdmin.length !== 0 || leaguesAsGuest.length !== 0) && loading === false">
+        <!-- Cambio Lega -->
+        <div style="width: 90%; margin: 20px auto 0; border-radius: 5px; margin-top: 70px; margin-bottom: 10px; position: relative;">
+            <select class="nightblue-bg" style="width: 90%; margin-left: 5%; border: 1px solid lightgray; border-radius: 5px; text-align: center; border: none; color: #fff; padding: 5px 30px" (change)="changeLeague($event)"> 
+              <option *ngFor="let leagueAdmin of leaguesAsAdmin" value="{{ leagueAdmin.id }}" style="text-align: center;">
+                {{ leagueAdmin.name }}
+              </option>
+              <option *ngFor="let leagueGuest of leaguesAsGuest" value="{{ leagueGuest.id }}">
+                {{ leagueGuest.name }}
+              </option>
+            </select>
+            <i (click)="manageLeague(leagueSelected.id)" *ngIf="leagueSelected?.user_id === id" class="fas fa-user-cog" style="position: absolute; top: 20%; right: 0;"></i>
+        </div>
+        <!-- Cambio Competizione -->
+        <div class="col-lg-12" style="height: 40px; display: flex; justify-content: space-between;">
+            <div style="width: 10%; height: 100%; text-align: center; line-height: 35px;">
+                <i class="fas fa-arrow-left nightblue-text"></i>
+            </div>
+            <div style="width: 80%; height: 100%; text-align: center; line-height: 35px;">
+                {{ competitions[competitionsIndex]?.name }}
+            </div>
+            <div style="width: 10%; height: 100%; text-align: center; line-height: 35px;">
+                <i class="fas fa-arrow-right nightblue-text"></i>
+            </div>
+        </div>
+        <!-- /Cambio Lega -->
+        <!-- Jumbotron con logo squadra -->
         <div class="col-lg-12" style="height: 300px; background-color: #00A178; position: relative;">
             <div class="centra" style="width: 100%; height: 200px; border: 2px solid #fff; background-color: #133A27;">
 
             </div>
         </div>
+        <!-- /Jumbotron con logo squadra -->
+        <!-- Risultato Partita -->
         <div class="col-lg-12" style="height: 200px; background-color: rgb(236, 236, 236); position: relative;">
             <div class="centra" style="width: 95%; height: 90%; border-radius: 10px; background-color: #fff;">
                 <div class="" style="width: 30%; height: 70%; display: inline-block; position: relative;">
@@ -23,12 +59,33 @@
                     </div>
                 </div>
                 <div style="width: 90%; height: 20%; margin: auto;">
-                    <button style="width: 100%; height: 100%; background-color: #12ce47; color: #fff; font-weight: bold; border: none; border-radius: 5px; text-align: center;">Segui Live</button>
+                    <button class="acqua-bg" style="width: 100%; height: 100%; color: #fff; font-weight: bold; border: none; border-radius: 5px; text-align: center;">Segui Live</button>
                 </div>
+                <!-- background-color: #12ce47; -->
             </div>
         </div>
-
+        <!-- /Risultato Partita -->
+        
         <button (click)="changePage('clubs')" class="btn btn-primary">Clubs</button>
 
     </div>
+
+    <!-- Caso 2 -->
+    <div class="row" *ngIf="leaguesAsAdmin.length === 0 && leaguesAsGuest.length === 0 && loading === false">
+        <div class="centra" style="width: 70vw; height: 40vh; background-color: #E3E4E6; border: 2px solid #0E2331; border-radius: 10px; margin-top: 60px;">
+            <div style="width: 100%; height: 50%; text-align: center; padding-top: 30px;">
+                <p style="line-height: 50px;">Non hai ancora una Lega!<br />
+                <span style="font-size: 12px;">Creane una e invita i tuoi amici a giocare</span>
+                </p>
+            </div>
+            <div style="width: 100%; height: 50%; position: relative;">
+                <div (click)="creaNuovaLega()" class="centra" style="width: 60px; height: 60px; background: linear-gradient(135deg, rgba(0,123,255,1) 52%, rgba(103,165,231,1) 77%, rgba(0,123,255,1) 96%); border-radius: 100%; position: relative;">
+                    <div class="centra">
+                        <i class="fas fa-2x fa-plus" style="color: #fff"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

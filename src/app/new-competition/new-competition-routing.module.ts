@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home.component';
+import { NewCompetitionComponent } from './new-competition.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
-  }  
+    component: NewCompetitionComponent
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class HomeRoutingModule { }
+export class NewCompetitionRoutingModule { }

@@ -1,0 +1,87 @@
+<div class="container">
+    <div class="row">
+        <div style="margin-top: 60px;">
+            <h5 class="nightblue-text">Crea una nuova Competizione</h5>
+        </div>
+        <div class="" style="border-radius: 10px;">
+            <!-- Nome Lega -->
+            <div class="m_20">
+                <label for="competitionName">Nome della Competizione</label><br>
+                <input (change)="getCompetitionName($event)" class="inputForm" type="text" name="competitionName" id="competitionName" placeholder="Nome Competizione">
+            </div>
+            <!-- Crediti -->
+            <div class="m_20">
+                <label for="credits">Modificatore difesa</label><br>
+    
+                <input (click)="getDefenseType('si')" type="radio" id="defense1" name="defenceType">
+                <label for="defense1">Si</label>
+                <input (click)="getDefenseType('no')" type="radio" id="defense2" name="defenceType" style="margin-left: 10px;" checked>
+                <label for="defense2">No</label>
+            </div>
+            <!-- Numero di Squadre -->
+            <div class="m_20">
+                <label for="teams">Punti classifica</label><br>
+               
+                <input (click)="getPointsMethod('classifica')" type="radio" id="classic" name="pointsMethod" checked>
+                <label for="classic">Calendario</label>
+                <input (click)="getPointsMethod('eliminazione')" type="radio" id="puntiTotali" name="pointsMethod" style="margin-left: 10px;">
+                <label for="puntiTotali">Eliminazione</label>
+                <input (click)="getPointsMethod('gruppi')" type="radio" id="gruppi" name="pointsMethod" style="margin-left: 10px;">
+                <label for="gruppi">Gruppi</label>
+                <input (click)="getPointsMethod('formula1')" type="radio" id="formula1" name="pointsMethod" style="margin-left: 10px;">
+                <label for="formula1">Formula1</label>
+            </div>
+            <div class="green-bg" style="color: #fff">
+                BONUS
+            </div>
+            <!-- Punti Gol Segnato -->
+            <div class="m_20">
+                <label for="credits">Bonus gol segnato</label><br>
+                <input (change)="getBonusGol($event)" class="inputForm" type="number" value="3">
+            </div>
+            <!-- Punti Assist -->
+            <div class="m_20">
+                <label for="credits">Bonus assist</label><br>
+                <input (change)="getBonusAssist($event)" class="inputForm" type="number" value="1">
+            </div>
+            <!-- Punti Rigore Parato da portiere -->
+            <div class="m_20">
+                <label for="credits">Bonus rigore parato (portiere)</label><br>
+                <input (change)="getBonusRigoreParato($event)" class="inputForm" type="number" value="1">
+            </div>
+            <div class="" style="color: #fff; background-color: #A01914;">
+                MALUS
+            </div>
+            <!-- Punti Cartellino giallo -->
+            <div class="m_20">
+                <label for="credits">Malus cartellino giallo</label><br>
+                <input (change)="getMalusYellow($event)" class="inputForm" type="number" value="-1">
+            </div>
+             <!-- Punti Cartellino rosso -->
+             <div class="m_20">
+                <label for="credits">Malus cartellino rosso</label><br>
+                <input (change)="getMalusRed($event)" class="inputForm" type="number" value="-1">
+            </div>
+            <!-- Punti Gol Subito da portiere -->
+            <div class="m_20">
+                <label for="credits">Malus gol subito dal portiere</label><br>
+                <input (change)="getMalusGolSubito($event)" class="inputForm" type="number" value="-1">
+            </div>
+            <!-- Punti Autogol -->
+            <div class="m_20">
+                <label for="credits">Malus autogol</label><br>
+                <input (change)="getMalusAutogol($event)" class="inputForm" type="number" value="-2">
+            </div>
+            <!-- Punti Rigore Sbagliato -->
+            <div class="m_20">
+                <label for="credits">Malus rigore sbagliato</label><br>
+                <input (change)="getMalusRigoreSbagliato($event)" class="inputForm" type="number" value="-1">
+            </div>
+            <!-- Button Crea Lega -->
+            <div class="m_20">
+                <button (click)="createNewCompetition()" type="submit" class="" style="width: 100%; height: 30px; background-color: #007bff; color: #fff; border: none; border-radius: 5px;">Crea Competizione</button>
+            </div>
+        </div>    
+    </div>
+    
+</div>

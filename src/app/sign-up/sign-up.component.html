@@ -1,0 +1,30 @@
+<div class="container" style="height: 100vh; background-color: #4B7D9C;">
+    <div class="row">
+        <div style="width: 85%; margin: 100px auto 20px; border-radius: 5px; background-color: #fff; border: 2px solid #fff; padding: 40px;">
+            <!-- Nome Lega -->
+            <div class="col-lg-12">
+                <label for="username" class="nightblue-text">Scegli un nome utente</label><br>
+                <input (change)="getUsername($event)" type="text" name="username" id="username" placeholder="Username">
+            </div>
+            <div class="col-lg-12 m_20">
+                <label for="email" class="nightblue-text">La tua e-mail</label><br>
+                <input (change)="getEmail($event)" type="email" name="email" id="email" placeholder="E-mail">
+            </div>
+            <div class="col-lg-12 m_20">
+                <label for="password" class="nightblue-text">Scegli una password</label><br>
+                <input (change)="getPassword($event)" type="password" name="password" id="password" placeholder="Password">
+                <span *ngIf="pswErr===true" style="font-size: 10px; color: red;">Le password non coincidono</span>
+            </div>
+            <div class="col-lg-12 m_20">
+                <label for="passwordConfirmation" class="nightblue-text">Conferma la tua password</label><br>
+                <input (change)="getPasswordConfirmation($event)" type="password" name="passwordConfirmation" id="passwordConfirmation" placeholder="Conferma Password">
+                <span *ngIf="pswErr===true" style="font-size: 10px; color: red;">Le password non coincidono</span>
+            </div>
+            <button (click)="createNewUser()" class="m_20" style="width: 100%; height: 30px; background-color: #007bff; color: #fff; border: none; border-radius: 5px;">
+                <span *ngIf="loading===false">Registrati</span>
+                <i *ngIf="loading===true" class="fas fa-circle-notch"></i>
+            </button>
+        </div>
+        
+    </div>
+</div>

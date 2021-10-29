@@ -1,12 +1,12 @@
 <div class="container" style="height: 100vh; background-color: #4B7D9C;">
     <div class="row">
-        <div style="width: 85%; margin: 100px auto 20px; border-radius: 5px; background-color: #0E2331; border: 2px solid #fff; padding: 50px;">
-            <input type="text" style="border-radius: 5px; border: none; padding: 5px 10px" placeholder="username">
-            <input type="password" style="border-radius: 5px; border: none; padding: 5px 10px; margin: 10px 0" placeholder="password">
+        <div style="width: 85%; margin: 100px auto 20px; border-radius: 5px; background-color: #0E2331; padding: 50px;">
+            <input (change)="getEmail($event)" type="text" style="border-radius: 5px; border: none; padding: 5px 10px" placeholder="username">
+            <input (change)="getPassword($event)" type="password" style="border-radius: 5px; border: none; padding: 5px 10px; margin: 10px 0" placeholder="password">
             <button class="btn " style="width: 100%; background-color: #00A178; color: #fff" (click)="login()">login</button>
         </div>
         <div style="text-align: center;">
-            <span>Sign Up</span>
+            <span (click)="signUp()">Sign Up</span>
         </div>
     </div>
 </div>

@@ -1,3 +1,23 @@
-.centra {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-}
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+.centra { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.nightblue-text { color: #0E2331; }
+.nightblue-bg { background-color: #0E2331; }
+.darkgeen-bg { background-color: #133A27; }
+.green-bg { background-color: #00A178; }
+.green-text { color: #00A178; }
+.white-text { color: #fff; }
+/* colori da testare */
+.acqua-bg { background-color: #36FBB1; }
+.violet-bg { background-color: #3C44A3; }
+.blueViolet-bg { background-color: #4557F4; }
+.blueViolet-text { color: #4557F4; }
+
+.nav-item { margin: 3px 0; }
+.m_20 { margin: 20px 0; }
+#leagueName, #credits, #teams, #teamName, #coachName, .inputForm { width: 100%; height: 30px; border-radius: 5px; border: 1px solid lightgray; padding: 0 10px; }
+#username, #email, #password, #passwordConfirmation { width: 100%; height: 30px; border: none; border-bottom: 1px solid #0E2331; padding: 0 10px; }
+
+.d_block { display: inline-block; }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+mat-select { background-color: #fff!important; z-index: 3!important;}

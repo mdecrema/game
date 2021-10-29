@@ -40,6 +40,8 @@ export class AppComponent {
   disable2: boolean;
   primoGiocatore: number;
 
+  status: number = 0;
+
   constructor(
     public cardService: CardService
   ) {
@@ -57,5 +59,13 @@ export class AppComponent {
       }
     )*/
   } 
+
+  menuToggle() {
+    if (this.status === 0) {
+      this.status = 1;
+    } else if (this.status === 1) {
+      this.status = 0;
+    }
+  }
 
 }
